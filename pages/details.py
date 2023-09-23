@@ -1,10 +1,22 @@
 import dash_bootstrap_components as dbc
-from dash import html, callback, Output, Input
+from dash import html, callback, Output, Input, dcc
 from components import cards
 
+tab_style = {
+    'borderBottom': '1px solid #d6d6d6',
+    'fontWeight': 'bold'
+}
+
+tab_selected_style = {
+    'borderTop': '3px solid #BF00BF',
+    'borderBottom': '1px solid #d6d6d6',
+    'backgroundColor': 'white',
+    'color': 'black',
+}
+
 layout = html.Div([
-    dbc.Row(
-        [
+    html.Div(
+        dbc.Row([
             # SALES ANALYSIS OVERVIEW
             html.H3(id="overview_title", style={"color": "#FF7F50"}),
             dbc.Col(dbc.Card(cards.sale, color="info", outline=True, className="shadow")),
@@ -13,63 +25,78 @@ layout = html.Div([
             dbc.Col(dbc.Card(cards.inv, color="info", outline=True, className="shadow")),
             dbc.Col(dbc.Card(cards.bottleSold, color="info", outline=True, className="shadow")),
             dbc.Col(dbc.Card(cards.volumeSold, color="info", outline=True, className="shadow"))
-        ], className="m-4",
+        ], className="m-4")
     ),
 
-    dbc.Row(
-        [
-            dbc.Col(cards.month_graph, className="text-center border-end m-3"),
-            dbc.Col(cards.m_dow_graph, className="text-center border-end m-3"),
-            dbc.Col(cards.dow_graph, className="text-center border-end m-3"),
-        ], className="m-4",
+    html.Div(
+        dbc.Row(
+            [
+                dbc.Col(cards.month_graph, className="text-center border-end m-3"),
+                dbc.Col(cards.m_dow_graph, className="text-center border-end m-3"),
+                dbc.Col(cards.dow_graph, className="text-center m-3"),
+            ], className="m-4",
+        )
     ),
 
-    dbc.Row(
-        [
-            html.H3("SALES ANALYSIS BY ITEM", style={"color": "#FF7F50"}),
-            dbc.Col(cards.top_highestItem_graph, className="text-center border-end m-3"),
-            dbc.Col(cards.top_mostItem_graph, className="text-center border-end m-3"),
-        ], className="m-4",
+    html.Div(
+        dbc.Row([
+                html.H3("SALES ANALYSIS", style={"color": "#FF7F50"}),
+            ], className="m-5"
+        )
     ),
 
-    dbc.Row(
-        [
-            html.H3("SALES ANALYSIS BY CATEGORY", style={"color": "#FF7F50"}),
-            dbc.Col(cards.top_highestCat_graph, className="text-center border-end m-3"),
-            dbc.Col(cards.top_mostCat_graph, className="text-center border-end m-3"),
-        ], className="m-4",
+    html.Div(
+        dbc.Row([
+            dcc.Tabs([
+                dcc.Tab(label='TOP 10 ITEMS', children=[
+                    dbc.Row([
+                        dbc.Col(cards.top_highestItem_graph, className="m-4"),
+                        dbc.Col(cards.top_mostItem_graph, className="m-3"),
+                    ])
+                ], style=tab_style, selected_style=tab_selected_style),
+
+                dcc.Tab(label='TOP 10 CATEGORIES', children=[
+                    dbc.Row([
+                        dbc.Col(cards.top_highestCat_graph, className="m-4"),
+                        dbc.Col(cards.top_mostCat_graph, className="m-4"),
+                    ])
+                ], style=tab_style, selected_style=tab_selected_style),
+
+                dcc.Tab(label='TOP 10 VENDORS', children=[
+                    dbc.Row([
+                        dbc.Col(cards.top_highestVendor_graph, className="m-4"),
+                        dbc.Col(cards.top_mostVendor_graph, className="m-4"),
+                    ])
+                ], style=tab_style, selected_style=tab_selected_style),
+
+                dcc.Tab(label='TOP 10 STORES', children=[
+                    dbc.Row([
+                        dbc.Col(cards.top_highestStore_graph, className="m-4"),
+                        dbc.Col(cards.top_mostStore_graph, className="m-4"),
+                    ])
+                ], style=tab_style, selected_style=tab_selected_style),
+            ])], className="m-5"
+        )
     ),
 
-    dbc.Row(
-        [
-            html.H3("SALES ANALYSIS BY VENDOR", style={"color": "#FF7F50"}),
-            dbc.Col(cards.top_highestVendor_graph, className="text-center border-end m-3"),
-            dbc.Col(cards.top_mostVendor_graph, className="text-center border-end m-3"),
-        ], className="m-4",
+    html.Div(
+        dbc.Row(
+            [
+                html.H3("SALES ANALYSIS BY CITY", style={"color": "#FF7F50"}),
+                dbc.Col(cards.top_highestCity_graph, className="text-center border-end m-3"),
+                dbc.Col(cards.top_mostCity_graph, className="text-center border-end m-3"),
+            ], className="m-4",
+        )
     ),
 
-    dbc.Row(
-        [
-            html.H3("SALES ANALYSIS BY STORE", style={"color": "#FF7F50"}),
-            dbc.Col(cards.top_highestStore_graph, className="text-center border-end m-3"),
-            dbc.Col(cards.top_mostStore_graph, className="text-center border-end m-3"),
-        ], className="m-4",
-    ),
-
-    dbc.Row(
-        [
-            html.H3("SALES ANALYSIS BY CITY", style={"color": "#FF7F50"}),
-            dbc.Col(cards.top_highestCity_graph, className="text-center border-end m-3"),
-            dbc.Col(cards.top_mostCity_graph, className="text-center border-end m-3"),
-        ], className="m-4",
-    ),
-
-    dbc.Row(
-        [
-            html.H3("SALES ANALYSIS BY COUNTY", style={"color": "#FF7F50"}),
-            dbc.Col(cards.top_highestCounty_graph, className="text-center border-end m-3"),
-            dbc.Col(cards.top_mostCounty_graph, className="text-center border-end m-3"),
-        ], className="m-4",
+    html.Div(
+        dbc.Row(
+            [
+                html.H3("SALES ANALYSIS BY COUNTY", style={"color": "#FF7F50"}),
+                dbc.Col(cards.top_highestCounty_graph, className="text-center border-end m-3"),
+                dbc.Col(cards.top_mostCounty_graph, className="text-center border-end m-3"),
+            ], className="m-4",
+        )
     ),
 ])
 
