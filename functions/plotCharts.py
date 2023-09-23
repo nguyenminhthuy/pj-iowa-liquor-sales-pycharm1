@@ -95,7 +95,7 @@ def plot_monthly_sales_bydf(sale, inv):
     fig.update_yaxes(title_text="Total Sales (USD)", secondary_y=False)
     fig.update_yaxes(title_text="Number of invoices", secondary_y=True)
 
-    fig.update_traces(marker_color='#FF69B4', opacity=1)
+    fig.update_traces(marker_color='#bcbd22', opacity=1)
     fig.update_layout({'plot_bgcolor': 'rgba(0, 0, 0, 0)',
                        'paper_bgcolor': 'rgba(0, 0, 0, 0)'})
     fig.update_layout(title="SALES MONTHLY TREND",
@@ -126,7 +126,7 @@ def plot_dow_sales_bydf(sale, inv):
     fig.update_yaxes(title_text="Total Sales (USD)", secondary_y=False)
     fig.update_yaxes(title_text="Number of invoices", secondary_y=True)
 
-    fig.update_traces(marker_color='#FF69B4', opacity=1)
+    fig.update_traces(marker_color='#bcbd22', opacity=1)
     fig.update_layout({'plot_bgcolor': 'rgba(0, 0, 0, 0)',
                        'paper_bgcolor': 'rgba(0, 0, 0, 0)'})
     fig.update_layout(title="SALES DAY OF WEEK TREND",
@@ -161,8 +161,8 @@ def plot_topGrossing(df_top10, df_title):
                         shared_yaxes=False, vertical_spacing=0.001)
 
     fig.add_trace(go.Bar(x = y_sales, y = x,
-                         marker = dict(color = 'rgba(50, 171, 96, 0.6)',
-                                     line = dict(color = 'rgba(50, 171, 96, 1.0)', width = 1)),
+                         marker = dict(color = 'rgba(23, 190, 207, 0.6)',
+                                     line = dict(color = 'rgba(23, 190, 207, 1.0)', width = 1)),
                          texttemplate = "%{x:,.0f}", name = 'Sales (USD)',
                          orientation = 'h'), 1, 1)
 
@@ -222,8 +222,8 @@ def plot_topConsuming(df_top10, df_title):
                         shared_yaxes=False, vertical_spacing=0.001)
 
     fig.add_trace(go.Bar(x=y_sales, y=x,
-                         marker=dict(color='rgba(50, 171, 96, 0.6)',
-                                     line=dict(color='rgba(50, 171, 96, 1.0)', width=1)),
+                         marker=dict(color='rgba(227, 119, 194, 0.6)',
+                                     line=dict(color='rgba(227, 119, 194, 1.0)', width=1)),
                          texttemplate="%{x:,.0f}", name='Number of invoices',
                          orientation='h'), 1, 1)
 

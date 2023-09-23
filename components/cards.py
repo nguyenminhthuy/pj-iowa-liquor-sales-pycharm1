@@ -279,15 +279,15 @@ fig_dow_sales_2022 = plotCharts.plot_dow_sales_bydf(dow_sale_2022, dow_inv_2022)
 fig_month_dow_2022 = plotCharts.plot_heatmap_month_dow(month_dow_2022)
 
 month_graph = ([
-    html.Div(id="card_monthly_sales_graph")
+    dcc.Graph(id="card_monthly_sales_graph")
 ])
 
 dow_graph = ([
-    html.Div(id="card_dow_sales_graph")
+    dcc.Graph(id="card_dow_sales_graph")
 ])
 
 m_dow_graph = ([
-    html.Div(id="card_month_dow_graph")
+    dcc.Graph(id="card_month_dow_graph")
 ])
 
 # -------------------------------------------------
@@ -386,11 +386,11 @@ fig_mostItem_2021 = plotCharts.plot_topConsuming(top10_mostItem_2021, "THE 10 MO
 fig_mostItem_2022 = plotCharts.plot_topConsuming(top10_mostItem_2022, "THE 10 MOST POPULAR CONSUMED LIQUOR")
 
 top_highestItem_graph = ([
-    html.Div(id="card_highestItem_graph")
+    dcc.Graph(id="card_highestItem_graph")
 ])
 
 top_mostItem_graph = ([
-    html.Div(id="card_mostItem_graph")
+    dcc.Graph(id="card_mostItem_graph")
 ])
 
 # -------------------------------------------------
@@ -406,24 +406,24 @@ fig_highestCat_2020 = plotCharts.plot_topGrossing(top10_highestCat_2020, "TOP 10
 fig_highestCat_2021 = plotCharts.plot_topGrossing(top10_highestCat_2021, "TOP 10 OF HIGHEST-GROSSING CATEGORIES")
 fig_highestCat_2022 = plotCharts.plot_topGrossing(top10_highestCat_2022, "TOP 10 OF HIGHEST-GROSSING CATEGORIES")
 
-fig_mostCat_2012 = plotCharts.plot_topGrossing(top10_mostCat_2012, "THE 10 MOST POPULAR CONSUMED LIQUOR CATEGORIES")
-fig_mostCat_2013 = plotCharts.plot_topGrossing(top10_mostCat_2013, "THE 10 MOST POPULAR CONSUMED LIQUOR CATEGORIES")
-fig_mostCat_2014 = plotCharts.plot_topGrossing(top10_mostCat_2014, "THE 10 MOST POPULAR CONSUMED LIQUOR CATEGORIES")
-fig_mostCat_2015 = plotCharts.plot_topGrossing(top10_mostCat_2015, "THE 10 MOST POPULAR CONSUMED LIQUOR CATEGORIES")
-fig_mostCat_2016 = plotCharts.plot_topGrossing(top10_mostCat_2016, "THE 10 MOST POPULAR CONSUMED LIQUOR CATEGORIES")
-fig_mostCat_2017 = plotCharts.plot_topGrossing(top10_mostCat_2017, "THE 10 MOST POPULAR CONSUMED LIQUOR CATEGORIES")
-fig_mostCat_2018 = plotCharts.plot_topGrossing(top10_mostCat_2018, "THE 10 MOST POPULAR CONSUMED LIQUOR CATEGORIES")
-fig_mostCat_2019 = plotCharts.plot_topGrossing(top10_mostCat_2019, "THE 10 MOST POPULAR CONSUMED LIQUOR CATEGORIES")
-fig_mostCat_2020 = plotCharts.plot_topGrossing(top10_mostCat_2020, "THE 10 MOST POPULAR CONSUMED LIQUOR CATEGORIES")
-fig_mostCat_2021 = plotCharts.plot_topGrossing(top10_mostCat_2021, "THE 10 MOST POPULAR CONSUMED LIQUOR CATEGORIES")
-fig_mostCat_2022 = plotCharts.plot_topGrossing(top10_mostCat_2022, "THE 10 MOST POPULAR CONSUMED LIQUOR CATEGORIES")
+fig_mostCat_2012 = plotCharts.plot_topConsuming(top10_mostCat_2012, "THE 10 MOST POPULAR CONSUMED LIQUOR CATEGORIES")
+fig_mostCat_2013 = plotCharts.plot_topConsuming(top10_mostCat_2013, "THE 10 MOST POPULAR CONSUMED LIQUOR CATEGORIES")
+fig_mostCat_2014 = plotCharts.plot_topConsuming(top10_mostCat_2014, "THE 10 MOST POPULAR CONSUMED LIQUOR CATEGORIES")
+fig_mostCat_2015 = plotCharts.plot_topConsuming(top10_mostCat_2015, "THE 10 MOST POPULAR CONSUMED LIQUOR CATEGORIES")
+fig_mostCat_2016 = plotCharts.plot_topConsuming(top10_mostCat_2016, "THE 10 MOST POPULAR CONSUMED LIQUOR CATEGORIES")
+fig_mostCat_2017 = plotCharts.plot_topConsuming(top10_mostCat_2017, "THE 10 MOST POPULAR CONSUMED LIQUOR CATEGORIES")
+fig_mostCat_2018 = plotCharts.plot_topConsuming(top10_mostCat_2018, "THE 10 MOST POPULAR CONSUMED LIQUOR CATEGORIES")
+fig_mostCat_2019 = plotCharts.plot_topConsuming(top10_mostCat_2019, "THE 10 MOST POPULAR CONSUMED LIQUOR CATEGORIES")
+fig_mostCat_2020 = plotCharts.plot_topConsuming(top10_mostCat_2020, "THE 10 MOST POPULAR CONSUMED LIQUOR CATEGORIES")
+fig_mostCat_2021 = plotCharts.plot_topConsuming(top10_mostCat_2021, "THE 10 MOST POPULAR CONSUMED LIQUOR CATEGORIES")
+fig_mostCat_2022 = plotCharts.plot_topConsuming(top10_mostCat_2022, "THE 10 MOST POPULAR CONSUMED LIQUOR CATEGORIES")
 
 top_highestCat_graph = ([
-    html.Div(id="card_highestCat_graph")
+    dcc.Graph(id="card_highestCat_graph")
 ])
 
 top_mostCat_graph = ([
-    html.Div(id="card_mostCat_graph")
+    dcc.Graph(id="card_mostCat_graph")
 ])
 
 # -------------------------------------------------
@@ -439,24 +439,24 @@ fig_highestVendor_2020 = plotCharts.plot_topGrossing(top10_highestVendor_2020, "
 fig_highestVendor_2021 = plotCharts.plot_topGrossing(top10_highestVendor_2021, "TOP 10 OF HIGHEST-GROSSING VENDORS")
 fig_highestVendor_2022 = plotCharts.plot_topGrossing(top10_highestVendor_2022, "TOP 10 OF HIGHEST-GROSSING VENDORS")
 
-fig_mostVendor_2012 = plotCharts.plot_topGrossing(top10_mostVendor_2012, "THE 10 MOST POPULAR CONSUMED LIQUOR VENDORS")
-fig_mostVendor_2013 = plotCharts.plot_topGrossing(top10_mostVendor_2013, "THE 10 MOST POPULAR CONSUMED LIQUOR VENDORS")
-fig_mostVendor_2014 = plotCharts.plot_topGrossing(top10_mostVendor_2014, "THE 10 MOST POPULAR CONSUMED LIQUOR VENDORS")
-fig_mostVendor_2015 = plotCharts.plot_topGrossing(top10_mostVendor_2015, "THE 10 MOST POPULAR CONSUMED LIQUOR VENDORS")
-fig_mostVendor_2016 = plotCharts.plot_topGrossing(top10_mostVendor_2016, "THE 10 MOST POPULAR CONSUMED LIQUOR VENDORS")
-fig_mostVendor_2017 = plotCharts.plot_topGrossing(top10_mostVendor_2017, "THE 10 MOST POPULAR CONSUMED LIQUOR VENDORS")
-fig_mostVendor_2018 = plotCharts.plot_topGrossing(top10_mostVendor_2018, "THE 10 MOST POPULAR CONSUMED LIQUOR VENDORS")
-fig_mostVendor_2019 = plotCharts.plot_topGrossing(top10_mostVendor_2019, "THE 10 MOST POPULAR CONSUMED LIQUOR VENDORS")
-fig_mostVendor_2020 = plotCharts.plot_topGrossing(top10_mostVendor_2020, "THE 10 MOST POPULAR CONSUMED LIQUOR VENDORS")
-fig_mostVendor_2021 = plotCharts.plot_topGrossing(top10_mostVendor_2021, "THE 10 MOST POPULAR CONSUMED LIQUOR VENDORS")
-fig_mostVendor_2022 = plotCharts.plot_topGrossing(top10_mostVendor_2022, "THE 10 MOST POPULAR CONSUMED LIQUOR VENDORS")
+fig_mostVendor_2012 = plotCharts.plot_topConsuming(top10_mostVendor_2012, "THE 10 MOST POPULAR CONSUMED LIQUOR VENDORS")
+fig_mostVendor_2013 = plotCharts.plot_topConsuming(top10_mostVendor_2013, "THE 10 MOST POPULAR CONSUMED LIQUOR VENDORS")
+fig_mostVendor_2014 = plotCharts.plot_topConsuming(top10_mostVendor_2014, "THE 10 MOST POPULAR CONSUMED LIQUOR VENDORS")
+fig_mostVendor_2015 = plotCharts.plot_topConsuming(top10_mostVendor_2015, "THE 10 MOST POPULAR CONSUMED LIQUOR VENDORS")
+fig_mostVendor_2016 = plotCharts.plot_topConsuming(top10_mostVendor_2016, "THE 10 MOST POPULAR CONSUMED LIQUOR VENDORS")
+fig_mostVendor_2017 = plotCharts.plot_topConsuming(top10_mostVendor_2017, "THE 10 MOST POPULAR CONSUMED LIQUOR VENDORS")
+fig_mostVendor_2018 = plotCharts.plot_topConsuming(top10_mostVendor_2018, "THE 10 MOST POPULAR CONSUMED LIQUOR VENDORS")
+fig_mostVendor_2019 = plotCharts.plot_topConsuming(top10_mostVendor_2019, "THE 10 MOST POPULAR CONSUMED LIQUOR VENDORS")
+fig_mostVendor_2020 = plotCharts.plot_topConsuming(top10_mostVendor_2020, "THE 10 MOST POPULAR CONSUMED LIQUOR VENDORS")
+fig_mostVendor_2021 = plotCharts.plot_topConsuming(top10_mostVendor_2021, "THE 10 MOST POPULAR CONSUMED LIQUOR VENDORS")
+fig_mostVendor_2022 = plotCharts.plot_topConsuming(top10_mostVendor_2022, "THE 10 MOST POPULAR CONSUMED LIQUOR VENDORS")
 
 top_highestVendor_graph = ([
-    html.Div(id="card_highestVendor_graph")
+    dcc.Graph(id="card_highestVendor_graph")
 ])
 
 top_mostVendor_graph = ([
-    html.Div(id="card_mostVendor_graph")
+    dcc.Graph(id="card_mostVendor_graph")
 ])
 
 # -------------------------------------------------
@@ -472,42 +472,42 @@ fig_highestStore_2020 = plotCharts.plot_topGrossing(top10_highestStore_2020, "TO
 fig_highestStore_2021 = plotCharts.plot_topGrossing(top10_highestStore_2021, "TOP 10 OF HIGHEST-GROSSING STORES")
 fig_highestStore_2022 = plotCharts.plot_topGrossing(top10_highestStore_2022, "TOP 10 OF HIGHEST-GROSSING STORES")
 
-fig_mostStore_2012 = plotCharts.plot_topGrossing(top10_mostStore_2012, "THE 10 MOST POPULAR CONSUMED LIQUOR STORES")
-fig_mostStore_2013 = plotCharts.plot_topGrossing(top10_mostStore_2013, "THE 10 MOST POPULAR CONSUMED LIQUOR STORES")
-fig_mostStore_2014 = plotCharts.plot_topGrossing(top10_mostStore_2014, "THE 10 MOST POPULAR CONSUMED LIQUOR STORES")
-fig_mostStore_2015 = plotCharts.plot_topGrossing(top10_mostStore_2015, "THE 10 MOST POPULAR CONSUMED LIQUOR STORES")
-fig_mostStore_2016 = plotCharts.plot_topGrossing(top10_mostStore_2016, "THE 10 MOST POPULAR CONSUMED LIQUOR STORES")
-fig_mostStore_2017 = plotCharts.plot_topGrossing(top10_mostStore_2017, "THE 10 MOST POPULAR CONSUMED LIQUOR STORES")
-fig_mostStore_2018 = plotCharts.plot_topGrossing(top10_mostStore_2018, "THE 10 MOST POPULAR CONSUMED LIQUOR STORES")
-fig_mostStore_2019 = plotCharts.plot_topGrossing(top10_mostStore_2019, "THE 10 MOST POPULAR CONSUMED LIQUOR STORES")
-fig_mostStore_2020 = plotCharts.plot_topGrossing(top10_mostStore_2020, "THE 10 MOST POPULAR CONSUMED LIQUOR STORES")
-fig_mostStore_2021 = plotCharts.plot_topGrossing(top10_mostStore_2021, "THE 10 MOST POPULAR CONSUMED LIQUOR STORES")
-fig_mostStore_2022 = plotCharts.plot_topGrossing(top10_mostStore_2022, "THE 10 MOST POPULAR CONSUMED LIQUOR STORES")
+fig_mostStore_2012 = plotCharts.plot_topConsuming(top10_mostStore_2012, "THE 10 MOST POPULAR CONSUMED LIQUOR STORES")
+fig_mostStore_2013 = plotCharts.plot_topConsuming(top10_mostStore_2013, "THE 10 MOST POPULAR CONSUMED LIQUOR STORES")
+fig_mostStore_2014 = plotCharts.plot_topConsuming(top10_mostStore_2014, "THE 10 MOST POPULAR CONSUMED LIQUOR STORES")
+fig_mostStore_2015 = plotCharts.plot_topConsuming(top10_mostStore_2015, "THE 10 MOST POPULAR CONSUMED LIQUOR STORES")
+fig_mostStore_2016 = plotCharts.plot_topConsuming(top10_mostStore_2016, "THE 10 MOST POPULAR CONSUMED LIQUOR STORES")
+fig_mostStore_2017 = plotCharts.plot_topConsuming(top10_mostStore_2017, "THE 10 MOST POPULAR CONSUMED LIQUOR STORES")
+fig_mostStore_2018 = plotCharts.plot_topConsuming(top10_mostStore_2018, "THE 10 MOST POPULAR CONSUMED LIQUOR STORES")
+fig_mostStore_2019 = plotCharts.plot_topConsuming(top10_mostStore_2019, "THE 10 MOST POPULAR CONSUMED LIQUOR STORES")
+fig_mostStore_2020 = plotCharts.plot_topConsuming(top10_mostStore_2020, "THE 10 MOST POPULAR CONSUMED LIQUOR STORES")
+fig_mostStore_2021 = plotCharts.plot_topConsuming(top10_mostStore_2021, "THE 10 MOST POPULAR CONSUMED LIQUOR STORES")
+fig_mostStore_2022 = plotCharts.plot_topConsuming(top10_mostStore_2022, "THE 10 MOST POPULAR CONSUMED LIQUOR STORES")
 
 top_highestStore_graph = ([
-    html.Div(id="card_highestStore_graph")
+    dcc.Graph(id="card_highestStore_graph")
 ])
 
 top_mostStore_graph = ([
-    html.Div(id="card_mostStore_graph")
+    dcc.Graph(id="card_mostStore_graph")
 ])
 
 # -------------------------------------------------
 top_highestCity_graph = ([
-    html.Div(id="card_highestCity_graph")
+    dcc.Graph(id="card_highestCity_graph")
 ])
 
 top_mostCity_graph = ([
-    html.Div(id="card_mostCity_graph")
+    dcc.Graph(id="card_mostCity_graph")
 ])
 
 # -------------------------------------------------
 top_highestCounty_graph = ([
-    html.Div(id="card_highestCounty_graph")
+    dcc.Graph(id="card_highestCounty_graph")
 ])
 
 top_mostCounty_graph = ([
-    html.Div(id="card_mostCounty_graph")
+    dcc.Graph(id="card_mostCounty_graph")
 ])
 # -------------------------------------------------
 @callback(
@@ -535,17 +535,17 @@ top_mostCounty_graph = ([
     Output('card_total_volume', 'children'),
     Output('card_volume_previous', 'children'),
     Output('card_volume_diff', 'children'),
-    Output('card_monthly_sales_graph', 'children'), # sales graphs
-    Output('card_dow_sales_graph', 'children'),
-    Output('card_month_dow_graph', 'children'),
-    Output('card_highestItem_graph', 'children'), # top 10 graph
-    Output('card_mostItem_graph', 'children'),
-    Output('card_highestCat_graph', 'children'),
-    Output('card_mostCat_graph', 'children'),
-    Output('card_highestVendor_graph', 'children'),
-    Output('card_mostVendor_graph', 'children'),
-    Output('card_highestStore_graph', 'children'),
-    Output('card_mostStore_graph', 'children'),
+    Output('card_monthly_sales_graph', 'figure'), # sales graphs
+    Output('card_dow_sales_graph', 'figure'),
+    Output('card_month_dow_graph', 'figure'),
+    Output('card_highestItem_graph', 'figure'), # top 10 graph
+    Output('card_mostItem_graph', 'figure'),
+    Output('card_highestCat_graph', 'figure'),
+    Output('card_mostCat_graph', 'figure'),
+    Output('card_highestVendor_graph', 'figure'),
+    Output('card_mostVendor_graph', 'figure'),
+    Output('card_highestStore_graph', 'figure'),
+    Output('card_mostStore_graph', 'figure'),
     Input('store_y', 'data'),
 )
 def selected_y(y_selected):
@@ -623,17 +623,17 @@ def selected_y(y_selected):
             total_volume = v_2012
             volume_previous = "N/A"
             volume_diff = "N/A"
-            monthly_sales_graph = dcc.Graph(figure=fig_monthly_sales_2012, responsive=True)
-            dow_sales_graph = dcc.Graph(figure=fig_dow_sales_2012, responsive=True)
-            month_dow_graph = dcc.Graph(figure=fig_month_dow_2012, responsive=True)
-            highestItem_graph = dcc.Graph(figure=fig_highestItem_2012, responsive=True)
-            mostItem_graph = dcc.Graph(figure=fig_mostItem_2012, responsive=True)
-            highestCat_graph = dcc.Graph(figure=fig_highestCat_2012, responsive=True)
-            mostCat_graph = dcc.Graph(figure=fig_mostCat_2012, responsive=True)
-            highestVendor_graph = dcc.Graph(figure=fig_highestVendor_2012, responsive=True)
-            mostVendor_graph = dcc.Graph(figure=fig_mostVendor_2012, responsive=True)
-            highestStore_graph = dcc.Graph(figure=fig_highestStore_2012, responsive=True)
-            mostStore_graph = dcc.Graph(figure=fig_mostStore_2012, responsive=True)
+            monthly_sales_graph = fig_monthly_sales_2012
+            dow_sales_graph = fig_dow_sales_2012
+            month_dow_graph = fig_month_dow_2012
+            highestItem_graph = fig_highestItem_2012
+            mostItem_graph = fig_mostItem_2012
+            highestCat_graph = fig_highestCat_2012
+            mostCat_graph = fig_mostCat_2012
+            highestVendor_graph = fig_highestVendor_2012
+            mostVendor_graph = fig_mostVendor_2012
+            highestStore_graph = fig_highestStore_2012
+            mostStore_graph = fig_mostStore_2012
 
         # 2013
         if y_selected == 2:
@@ -661,17 +661,17 @@ def selected_y(y_selected):
             total_volume = v_2013
             volume_previous = v_2012
             volume_diff = diff_volumeSold_2013_2012
-            monthly_sales_graph = dcc.Graph(figure=fig_monthly_sales_2013, responsive=True)
-            dow_sales_graph = dcc.Graph(figure=fig_dow_sales_2013, responsive=True)
-            month_dow_graph = dcc.Graph(figure=fig_month_dow_2013, responsive=True)
-            highestItem_graph = dcc.Graph(figure=fig_highestItem_2013, responsive=True)
-            mostItem_graph = dcc.Graph(figure=fig_mostItem_2013, responsive=True)
-            highestCat_graph = dcc.Graph(figure=fig_highestCat_2013, responsive=True)
-            mostCat_graph = dcc.Graph(figure=fig_mostCat_2013, responsive=True)
-            highestVendor_graph = dcc.Graph(figure=fig_highestVendor_2013, responsive=True)
-            mostVendor_graph = dcc.Graph(figure=fig_mostVendor_2013, responsive=True)
-            highestStore_graph = dcc.Graph(figure=fig_highestStore_2013, responsive=True)
-            mostStore_graph = dcc.Graph(figure=fig_mostStore_2013, responsive=True)
+            monthly_sales_graph = fig_monthly_sales_2013
+            dow_sales_graph = fig_dow_sales_2013
+            month_dow_graph = fig_month_dow_2013
+            highestItem_graph = fig_highestItem_2013
+            mostItem_graph = fig_mostItem_2013
+            highestCat_graph = fig_highestCat_2013
+            mostCat_graph = fig_mostCat_2013
+            highestVendor_graph = fig_highestVendor_2013
+            mostVendor_graph = fig_mostVendor_2013
+            highestStore_graph = fig_highestStore_2013
+            mostStore_graph = fig_mostStore_2013
 
         # 2014
         if y_selected == 3:
@@ -699,17 +699,17 @@ def selected_y(y_selected):
             total_volume = v_2014
             volume_previous = v_2013
             volume_diff = diff_volumeSold_2014_2013
-            monthly_sales_graph = dcc.Graph(figure=fig_monthly_sales_2014, responsive=True)
-            dow_sales_graph = dcc.Graph(figure=fig_dow_sales_2014, responsive=True)
-            month_dow_graph = dcc.Graph(figure=fig_month_dow_2014, responsive=True)
-            highestItem_graph = dcc.Graph(figure=fig_highestItem_2014, responsive=True)
-            mostItem_graph = dcc.Graph(figure=fig_mostItem_2014, responsive=True)
-            highestCat_graph = dcc.Graph(figure=fig_highestCat_2014, responsive=True)
-            mostCat_graph = dcc.Graph(figure=fig_mostCat_2014, responsive=True)
-            highestVendor_graph = dcc.Graph(figure=fig_highestVendor_2014, responsive=True)
-            mostVendor_graph = dcc.Graph(figure=fig_mostVendor_2014, responsive=True)
-            highestStore_graph = dcc.Graph(figure=fig_highestStore_2014, responsive=True)
-            mostStore_graph = dcc.Graph(figure=fig_mostStore_2014, responsive=True)
+            monthly_sales_graph = fig_monthly_sales_2014
+            dow_sales_graph = fig_dow_sales_2014
+            month_dow_graph = fig_month_dow_2014
+            highestItem_graph = fig_highestItem_2014
+            mostItem_graph = fig_mostItem_2014
+            highestCat_graph = fig_highestCat_2014
+            mostCat_graph = fig_mostCat_2014
+            highestVendor_graph = fig_highestVendor_2014
+            mostVendor_graph = fig_mostVendor_2014
+            highestStore_graph = fig_highestStore_2014
+            mostStore_graph = fig_mostStore_2014
 
         # 2015
         if y_selected == 4:
@@ -737,17 +737,17 @@ def selected_y(y_selected):
             total_volume = v_2015
             volume_previous = v_2014
             volume_diff = diff_volumeSold_2015_2014
-            monthly_sales_graph = dcc.Graph(figure=fig_monthly_sales_2015, responsive=True)
-            dow_sales_graph = dcc.Graph(figure=fig_dow_sales_2015, responsive=True)
-            month_dow_graph = dcc.Graph(figure=fig_month_dow_2015, responsive=True)
-            highestItem_graph = dcc.Graph(figure=fig_highestItem_2015, responsive=True)
-            mostItem_graph = dcc.Graph(figure=fig_mostItem_2015, responsive=True)
-            highestCat_graph = dcc.Graph(figure=fig_highestCat_2015, responsive=True)
-            mostCat_graph = dcc.Graph(figure=fig_mostCat_2015, responsive=True)
-            highestVendor_graph = dcc.Graph(figure=fig_highestVendor_2015, responsive=True)
-            mostVendor_graph = dcc.Graph(figure=fig_mostVendor_2015, responsive=True)
-            highestStore_graph = dcc.Graph(figure=fig_highestStore_2015, responsive=True)
-            mostStore_graph = dcc.Graph(figure=fig_mostStore_2015, responsive=True)
+            monthly_sales_graph = fig_monthly_sales_2015
+            dow_sales_graph = fig_dow_sales_2015
+            month_dow_graph = fig_month_dow_2015
+            highestItem_graph = fig_highestItem_2015
+            mostItem_graph = fig_mostItem_2015
+            highestCat_graph = fig_highestCat_2015
+            mostCat_graph = fig_mostCat_2015
+            highestVendor_graph = fig_highestVendor_2015
+            mostVendor_graph = fig_mostVendor_2015
+            highestStore_graph = fig_highestStore_2015
+            mostStore_graph = fig_mostStore_2015
 
         # 2016
         if y_selected == 5:
@@ -775,17 +775,17 @@ def selected_y(y_selected):
             total_volume = v_2016
             volume_previous = v_2015
             volume_diff = diff_volumeSold_2016_2015
-            monthly_sales_graph = dcc.Graph(figure=fig_monthly_sales_2016, responsive=True)
-            dow_sales_graph = dcc.Graph(figure=fig_dow_sales_2016, responsive=True)
-            month_dow_graph = dcc.Graph(figure=fig_month_dow_2016, responsive=True)
-            highestItem_graph = dcc.Graph(figure=fig_highestItem_2016, responsive=True)
-            mostItem_graph = dcc.Graph(figure=fig_mostItem_2016, responsive=True)
-            highestCat_graph = dcc.Graph(figure=fig_highestCat_2016, responsive=True)
-            mostCat_graph = dcc.Graph(figure=fig_mostCat_2016, responsive=True)
-            highestVendor_graph = dcc.Graph(figure=fig_highestVendor_2016, responsive=True)
-            mostVendor_graph = dcc.Graph(figure=fig_mostVendor_2016, responsive=True)
-            highestStore_graph = dcc.Graph(figure=fig_highestStore_2016, responsive=True)
-            mostStore_graph = dcc.Graph(figure=fig_mostStore_2016, responsive=True)
+            monthly_sales_graph = fig_monthly_sales_2016
+            dow_sales_graph = fig_dow_sales_2016
+            month_dow_graph = fig_month_dow_2016
+            highestItem_graph = fig_highestItem_2016
+            mostItem_graph = fig_mostItem_2016
+            highestCat_graph = fig_highestCat_2016
+            mostCat_graph = fig_mostCat_2016
+            highestVendor_graph = fig_highestVendor_2016
+            mostVendor_graph = fig_mostVendor_2016
+            highestStore_graph = fig_highestStore_2016
+            mostStore_graph = fig_mostStore_2016
 
         # 2017
         if y_selected == 6:
@@ -813,17 +813,17 @@ def selected_y(y_selected):
             total_volume = v_2017
             volume_previous = v_2016
             volume_diff = diff_volumeSold_2017_2016
-            monthly_sales_graph = dcc.Graph(figure=fig_monthly_sales_2017, responsive=True)
-            dow_sales_graph = dcc.Graph(figure=fig_dow_sales_2017, responsive=True)
-            month_dow_graph = dcc.Graph(figure=fig_month_dow_2017, responsive=True)
-            highestItem_graph = dcc.Graph(figure=fig_highestItem_2017, responsive=True)
-            mostItem_graph = dcc.Graph(figure=fig_mostItem_2017, responsive=True)
-            highestCat_graph = dcc.Graph(figure=fig_highestCat_2017, responsive=True)
-            mostCat_graph = dcc.Graph(figure=fig_mostCat_2017, responsive=True)
-            highestVendor_graph = dcc.Graph(figure=fig_highestVendor_2017, responsive=True)
-            mostVendor_graph = dcc.Graph(figure=fig_mostVendor_2017, responsive=True)
-            highestStore_graph = dcc.Graph(figure=fig_highestStore_2017, responsive=True)
-            mostStore_graph = dcc.Graph(figure=fig_mostStore_2017, responsive=True)
+            monthly_sales_graph = fig_monthly_sales_2017
+            dow_sales_graph = fig_dow_sales_2017
+            month_dow_graph = fig_month_dow_2017
+            highestItem_graph = fig_highestItem_2017
+            mostItem_graph = fig_mostItem_2017
+            highestCat_graph = fig_highestCat_2017
+            mostCat_graph = fig_mostCat_2017
+            highestVendor_graph = fig_highestVendor_2017
+            mostVendor_graph = fig_mostVendor_2017
+            highestStore_graph = fig_highestStore_2017
+            mostStore_graph = fig_mostStore_2017
 
         # 2018
         if y_selected == 7:
@@ -851,17 +851,17 @@ def selected_y(y_selected):
             total_volume = v_2018
             volume_previous = v_2017
             volume_diff = diff_volumeSold_2018_2017
-            monthly_sales_graph = dcc.Graph(figure=fig_monthly_sales_2018, responsive=True)
-            dow_sales_graph = dcc.Graph(figure=fig_dow_sales_2018, responsive=True)
-            month_dow_graph = dcc.Graph(figure=fig_month_dow_2018, responsive=True)
-            highestItem_graph = dcc.Graph(figure=fig_highestItem_2018, responsive=True)
-            mostItem_graph = dcc.Graph(figure=fig_mostItem_2018, responsive=True)
-            highestCat_graph = dcc.Graph(figure=fig_highestCat_2018, responsive=True)
-            mostCat_graph = dcc.Graph(figure=fig_mostCat_2018, responsive=True)
-            highestVendor_graph = dcc.Graph(figure=fig_highestVendor_2018, responsive=True)
-            mostVendor_graph = dcc.Graph(figure=fig_mostVendor_2018, responsive=True)
-            highestStore_graph = dcc.Graph(figure=fig_highestStore_2018, responsive=True)
-            mostStore_graph = dcc.Graph(figure=fig_mostStore_2018, responsive=True)
+            monthly_sales_graph = fig_monthly_sales_2018
+            dow_sales_graph = fig_dow_sales_2018
+            month_dow_graph = fig_month_dow_2018
+            highestItem_graph = fig_highestItem_2018
+            mostItem_graph = fig_mostItem_2018
+            highestCat_graph = fig_highestCat_2018
+            mostCat_graph = fig_mostCat_2018
+            highestVendor_graph = fig_highestVendor_2018
+            mostVendor_graph = fig_mostVendor_2018
+            highestStore_graph = fig_highestStore_2018
+            mostStore_graph = fig_mostStore_2018
 
         # 2019
         if y_selected == 8:
@@ -888,17 +888,17 @@ def selected_y(y_selected):
             total_volume = v_2019
             volume_previous = v_2018
             volume_diff = diff_volumeSold_2019_2018
-            monthly_sales_graph = dcc.Graph(figure=fig_monthly_sales_2019, responsive=True)
-            dow_sales_graph = dcc.Graph(figure=fig_dow_sales_2019, responsive=True)
-            month_dow_graph = dcc.Graph(figure=fig_month_dow_2019, responsive=True)
-            highestItem_graph = dcc.Graph(figure=fig_highestItem_2019, responsive=True)
-            mostItem_graph = dcc.Graph(figure=fig_mostItem_2019, responsive=True)
-            highestCat_graph = dcc.Graph(figure=fig_highestCat_2019, responsive=True)
-            mostCat_graph = dcc.Graph(figure=fig_mostCat_2019, responsive=True)
-            highestVendor_graph = dcc.Graph(figure=fig_highestVendor_2019, responsive=True)
-            mostVendor_graph = dcc.Graph(figure=fig_mostVendor_2019, responsive=True)
-            highestStore_graph = dcc.Graph(figure=fig_highestStore_2019, responsive=True)
-            mostStore_graph = dcc.Graph(figure=fig_mostStore_2019, responsive=True)
+            monthly_sales_graph = fig_monthly_sales_2019
+            dow_sales_graph = fig_dow_sales_2019
+            month_dow_graph = fig_month_dow_2019
+            highestItem_graph = fig_highestItem_2019
+            mostItem_graph = fig_mostItem_2019
+            highestCat_graph = fig_highestCat_2019
+            mostCat_graph = fig_mostCat_2019
+            highestVendor_graph = fig_highestVendor_2019
+            mostVendor_graph = fig_mostVendor_2019
+            highestStore_graph = fig_highestStore_2019
+            mostStore_graph = fig_mostStore_2019
 
         # 2020
         if y_selected == 9:
@@ -926,17 +926,17 @@ def selected_y(y_selected):
             total_volume = v_2020
             volume_previous = v_2019
             volume_diff = diff_volumeSold_2020_2019
-            monthly_sales_graph = dcc.Graph(figure=fig_monthly_sales_2020, responsive=True)
-            dow_sales_graph = dcc.Graph(figure=fig_dow_sales_2020, responsive=True)
-            month_dow_graph = dcc.Graph(figure=fig_month_dow_2020, responsive=True)
-            highestItem_graph = dcc.Graph(figure=fig_highestItem_2020, responsive=True)
-            mostItem_graph = dcc.Graph(figure=fig_mostItem_2020, responsive=True)
-            highestCat_graph = dcc.Graph(figure=fig_highestCat_2020, responsive=True)
-            mostCat_graph = dcc.Graph(figure=fig_mostCat_2020, responsive=True)
-            highestVendor_graph = dcc.Graph(figure=fig_highestVendor_2020, responsive=True)
-            mostVendor_graph = dcc.Graph(figure=fig_mostVendor_2020, responsive=True)
-            highestStore_graph = dcc.Graph(figure=fig_highestStore_2020, responsive=True)
-            mostStore_graph = dcc.Graph(figure=fig_mostStore_2020, responsive=True)
+            monthly_sales_graph = fig_monthly_sales_2020
+            dow_sales_graph = fig_dow_sales_2020
+            month_dow_graph = fig_month_dow_2020
+            highestItem_graph = fig_highestItem_2020
+            mostItem_graph = fig_mostItem_2020
+            highestCat_graph = fig_highestCat_2020
+            mostCat_graph = fig_mostCat_2020
+            highestVendor_graph = fig_highestVendor_2020
+            mostVendor_graph = fig_mostVendor_2020
+            highestStore_graph = fig_highestStore_2020
+            mostStore_graph = fig_mostStore_2020
 
         # 2021
         if y_selected == 10:
@@ -964,17 +964,17 @@ def selected_y(y_selected):
             total_volume = v_2021
             volume_previous = v_2020
             volume_diff = diff_volumeSold_2021_2020
-            monthly_sales_graph = dcc.Graph(figure=fig_monthly_sales_2021, responsive=True)
-            dow_sales_graph = dcc.Graph(figure=fig_dow_sales_2021, responsive=True)
-            month_dow_graph = dcc.Graph(figure=fig_month_dow_2021, responsive=True)
-            highestItem_graph = dcc.Graph(figure=fig_highestItem_2021, responsive=True)
-            mostItem_graph = dcc.Graph(figure=fig_mostItem_2021, responsive=True)
-            highestCat_graph = dcc.Graph(figure=fig_highestCat_2021, responsive=True)
-            mostCat_graph = dcc.Graph(figure=fig_mostCat_2021, responsive=True)
-            highestVendor_graph = dcc.Graph(figure=fig_highestVendor_2021, responsive=True)
-            mostVendor_graph = dcc.Graph(figure=fig_mostVendor_2021, responsive=True)
-            highestStore_graph = dcc.Graph(figure=fig_highestStore_2021, responsive=True)
-            mostStore_graph = dcc.Graph(figure=fig_mostStore_2021, responsive=True)
+            monthly_sales_graph = fig_monthly_sales_2021
+            dow_sales_graph = fig_dow_sales_2021
+            month_dow_graph = fig_month_dow_2021
+            highestItem_graph = fig_highestItem_2021
+            mostItem_graph = fig_mostItem_2021
+            highestCat_graph = fig_highestCat_2021
+            mostCat_graph = fig_mostCat_2021
+            highestVendor_graph = fig_highestVendor_2021
+            mostVendor_graph = fig_mostVendor_2021
+            highestStore_graph = fig_highestStore_2021
+            mostStore_graph = fig_mostStore_2021
 
         # 2022
         if y_selected == 11:
@@ -1002,17 +1002,17 @@ def selected_y(y_selected):
             total_volume = v_2022
             volume_previous = v_2021
             volume_diff = diff_volumeSold_2022_2021
-            monthly_sales_graph = dcc.Graph(figure=fig_monthly_sales_2022, responsive=True)
-            dow_sales_graph = dcc.Graph(figure=fig_dow_sales_2022, responsive=True)
-            month_dow_graph = dcc.Graph(figure=fig_month_dow_2022, responsive=True)
-            highestItem_graph = dcc.Graph(figure=fig_highestItem_2022, responsive=True)
-            mostItem_graph = dcc.Graph(figure=fig_mostItem_2022, responsive=True)
-            highestCat_graph = dcc.Graph(figure=fig_highestCat_2022, responsive=True)
-            mostCat_graph = dcc.Graph(figure=fig_mostCat_2022, responsive=True)
-            highestVendor_graph = dcc.Graph(figure=fig_highestVendor_2022, responsive=True)
-            mostVendor_graph = dcc.Graph(figure=fig_mostVendor_2022, responsive=True)
-            highestStore_graph = dcc.Graph(figure=fig_highestStore_2022, responsive=True)
-            mostStore_graph = dcc.Graph(figure=fig_mostStore_2022, responsive=True)
+            monthly_sales_graph = fig_monthly_sales_2022
+            dow_sales_graph = fig_dow_sales_2022
+            month_dow_graph = fig_month_dow_2022
+            highestItem_graph = fig_highestItem_2022
+            mostItem_graph = fig_mostItem_2022
+            highestCat_graph = fig_highestCat_2022
+            mostCat_graph = fig_mostCat_2022
+            highestVendor_graph = fig_highestVendor_2022
+            mostVendor_graph = fig_mostVendor_2022
+            highestStore_graph = fig_highestStore_2022
+            mostStore_graph = fig_mostStore_2022
 
     return (sale_title, total_sales, sales_previous, sales_diff,
             cost_title, total_cost, cost_previous, cost_diff,

@@ -153,9 +153,9 @@ def human_format(num):
     return '%.1f%s' % (num, ['', 'K', 'M', 'G', 'T', 'P'][magnitude])
 
 def total_general_byYear(sale, cost, grossProfit, inv, bottleSold, volumeSold):
-    sale_str = human_format(sale)
-    cost_str = human_format(cost)
-    grossProfit_str = human_format(grossProfit)
+    sale_str = '$' + human_format(sale)
+    cost_str = '$' + human_format(cost)
+    grossProfit_str = '$' + human_format(grossProfit)
     inv_str = human_format(inv)
     bottleSold_str = human_format(bottleSold)
     volumeSold_str = human_format(volumeSold)
@@ -163,16 +163,16 @@ def total_general_byYear(sale, cost, grossProfit, inv, bottleSold, volumeSold):
     return sale_str, cost_str, grossProfit_str, inv_str, bottleSold_str, volumeSold_str
 
 def diff_sales_yearAfterBefore(sale2012, sale2013, sale2014, sale2015, sale2016, sale2017, sale2018, sale2019, sale2020, sale2021, sale2022):
-    diff_sale_2013_2012 = human_format(sale2013 - sale2012)
-    diff_sale_2014_2013 = human_format(sale2014 - sale2013)
-    diff_sale_2015_2014 = human_format(sale2015 - sale2014)
-    diff_sale_2016_2015 = human_format(sale2016 - sale2015)
-    diff_sale_2017_2016 = human_format(sale2017 - sale2016)
-    diff_sale_2018_2017 = human_format(sale2018 - sale2017)
-    diff_sale_2019_2018 = human_format(sale2019 - sale2018)
-    diff_sale_2020_2019 = human_format(sale2020 - sale2019)
-    diff_sale_2021_2020 = human_format(sale2021 - sale2020)
-    diff_sale_2022_2021 = human_format(sale2022 - sale2021)
+    diff_sale_2013_2012 = '$' + human_format(sale2013 - sale2012)
+    diff_sale_2014_2013 = '$' + human_format(sale2014 - sale2013)
+    diff_sale_2015_2014 = '$' + human_format(sale2015 - sale2014)
+    diff_sale_2016_2015 = '$' + human_format(sale2016 - sale2015)
+    diff_sale_2017_2016 = '$' + human_format(sale2017 - sale2016)
+    diff_sale_2018_2017 = '$' + human_format(sale2018 - sale2017)
+    diff_sale_2019_2018 = '$' + human_format(sale2019 - sale2018)
+    diff_sale_2020_2019 = '$' + human_format(sale2020 - sale2019)
+    diff_sale_2021_2020 = '$' + human_format(sale2021 - sale2020)
+    diff_sale_2022_2021 = '$' + human_format(sale2022 - sale2021)
 
     return (diff_sale_2013_2012, diff_sale_2014_2013, diff_sale_2015_2014, diff_sale_2016_2015, diff_sale_2017_2016,
             diff_sale_2018_2017, diff_sale_2019_2018, diff_sale_2020_2019, diff_sale_2021_2020, diff_sale_2022_2021)
