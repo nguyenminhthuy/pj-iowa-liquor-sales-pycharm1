@@ -3,7 +3,6 @@ import plotly.express as px
 import plotly.graph_objs as go
 from plotly.subplots import make_subplots
 
-
 def plot_Overall_Sale_Inv(df):
     fig = make_subplots(specs=[[{"secondary_y": True}]])
 

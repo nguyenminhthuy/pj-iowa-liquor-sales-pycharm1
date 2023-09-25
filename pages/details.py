@@ -83,19 +83,9 @@ layout = html.Div([
 
     html.Div(
         dbc.Row([
-                html.H3("SALES ANALYSIS BY CITY", style={"color": "#FF7F50"}),
-                dbc.Col(cards.top_highestCity_graph, className="text-center border-end m-3"),
-                dbc.Col(cards.top_mostCity_graph, className="text-center border-end m-3"),
-            ], className="m-4",
-        )
-    ),
-
-    html.Div(
-        dbc.Row([
-                html.H3("SALES ANALYSIS BY COUNTY", style={"color": "#FF7F50"}),
-                dbc.Col(cards.top_highestCounty_graph, className="text-center border-end m-3"),
-                dbc.Col(cards.top_mostCounty_graph, className="text-center border-end m-3"),
-            ], className="m-4",
+                html.H3("STORE LOCATION", style={"color": "#FF7F50"}),
+                dbc.Col(cards.store_map),
+            ], className="m-5",
         )
     ),
 ])

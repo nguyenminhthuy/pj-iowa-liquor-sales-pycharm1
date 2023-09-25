@@ -1,7 +1,6 @@
 import dash_bootstrap_components as dbc
 from dash import html, callback, Output, Input, dcc
-from functions import readData, calTotal, plotCharts
-import plotly.graph_objs as go
+from functions import readData, calTotal, plotCharts, foliumMap
 
 # Read Data
 df_2012 = readData.data_2012()
@@ -493,21 +492,43 @@ top_mostStore_graph = ([
 ])
 
 # -------------------------------------------------
-top_highestCity_graph = ([
-    dcc.Graph(id="card_highestCity_graph")
-])
+url_map_2012 = "img/map_2012.html"
+url_map_2013 = "img/map_2013.html"
+url_map_2014 = "img/map_2014.html"
+url_map_2015 = "img/map_2015.html"
+url_map_2016 = "img/map_2016.html"
+url_map_2017 = "img/map_2017.html"
+url_map_2018 = "img/map_2018.html"
+url_map_2019 = "img/map_2019.html"
+url_map_2020 = "img/map_2020.html"
+url_map_2021 = "img/map_2021.html"
+url_map_2022 = "img/map_2022.html"
 
-top_mostCity_graph = ([
-    dcc.Graph(id="card_mostCity_graph")
-])
+"""
+# Waiting time is very long, run the 1st time only
+def folium_map_html(df, url_html):
+    df_gpd = foliumMap.convert_gpd_groupBy(df)
+    map_store = foliumMap.map_of_stores(df_gpd)
+    map_store.save(url_html)
 
-# -------------------------------------------------
-top_highestCounty_graph = ([
-    dcc.Graph(id="card_highestCounty_graph")
-])
+    folium_map_Iframe = html.Iframe(srcDoc=open(url_html, 'r').read(), width='100%', height=500)
+    return folium_map_Iframe
+"""
 
-top_mostCounty_graph = ([
-    dcc.Graph(id="card_mostCounty_graph")
+store_map_2012 = html.Iframe(srcDoc=open(url_map_2012, 'r').read(), width='100%', height=500)
+store_map_2013 = html.Iframe(srcDoc=open(url_map_2013, 'r').read(), width='100%', height=500)
+store_map_2014 = html.Iframe(srcDoc=open(url_map_2014, 'r').read(), width='100%', height=500)
+store_map_2015 = html.Iframe(srcDoc=open(url_map_2015, 'r').read(), width='100%', height=500)
+store_map_2016 = html.Iframe(srcDoc=open(url_map_2016, 'r').read(), width='100%', height=500)
+store_map_2017 = html.Iframe(srcDoc=open(url_map_2017, 'r').read(), width='100%', height=500)
+store_map_2018 = html.Iframe(srcDoc=open(url_map_2018, 'r').read(), width='100%', height=500)
+store_map_2019 = html.Iframe(srcDoc=open(url_map_2019, 'r').read(), width='100%', height=500)
+store_map_2020 = html.Iframe(srcDoc=open(url_map_2020, 'r').read(), width='100%', height=500)
+store_map_2021 = html.Iframe(srcDoc=open(url_map_2021, 'r').read(), width='100%', height=500)
+store_map_2022 = html.Iframe(srcDoc=open(url_map_2022, 'r').read(), width='100%', height=500)
+
+store_map = ([
+    html.Div(id="folium_store_map")
 ])
 # -------------------------------------------------
 @callback(
@@ -546,6 +567,7 @@ top_mostCounty_graph = ([
     Output('card_mostVendor_graph', 'figure'),
     Output('card_highestStore_graph', 'figure'),
     Output('card_mostStore_graph', 'figure'),
+    Output('folium_store_map', 'children'),
     Input('store_y', 'data'),
 )
 def selected_y(y_selected):
@@ -557,7 +579,7 @@ def selected_y(y_selected):
         volume_title, total_volume, volume_previous, volume_diff,\
         monthly_sales_graph, dow_sales_graph, month_dow_graph, highestItem_graph, \
         mostItem_graph, highestCat_graph, mostCat_graph, highestVendor_graph, \
-        mostVendor_graph, highestStore_graph, mostStore_graph
+        mostVendor_graph, highestStore_graph, mostStore_graph, store_map
 
     if y_selected is None:
         sale_title = f"SALES N/A"
@@ -595,6 +617,7 @@ def selected_y(y_selected):
         mostVendor_graph = "N/A"
         highestStore_graph = "N/A"
         mostStore_graph = "N/A"
+        store_map = "N/A"
 
     else:
         # 2012
@@ -634,6 +657,7 @@ def selected_y(y_selected):
             mostVendor_graph = fig_mostVendor_2012
             highestStore_graph = fig_highestStore_2012
             mostStore_graph = fig_mostStore_2012
+            store_map = store_map_2012
 
         # 2013
         if y_selected == 2:
@@ -672,6 +696,7 @@ def selected_y(y_selected):
             mostVendor_graph = fig_mostVendor_2013
             highestStore_graph = fig_highestStore_2013
             mostStore_graph = fig_mostStore_2013
+            store_map = store_map_2013
 
         # 2014
         if y_selected == 3:
@@ -710,6 +735,7 @@ def selected_y(y_selected):
             mostVendor_graph = fig_mostVendor_2014
             highestStore_graph = fig_highestStore_2014
             mostStore_graph = fig_mostStore_2014
+            store_map = store_map_2014
 
         # 2015
         if y_selected == 4:
@@ -748,6 +774,7 @@ def selected_y(y_selected):
             mostVendor_graph = fig_mostVendor_2015
             highestStore_graph = fig_highestStore_2015
             mostStore_graph = fig_mostStore_2015
+            store_map = store_map_2015
 
         # 2016
         if y_selected == 5:
@@ -786,6 +813,7 @@ def selected_y(y_selected):
             mostVendor_graph = fig_mostVendor_2016
             highestStore_graph = fig_highestStore_2016
             mostStore_graph = fig_mostStore_2016
+            store_map = store_map_2016
 
         # 2017
         if y_selected == 6:
@@ -824,6 +852,7 @@ def selected_y(y_selected):
             mostVendor_graph = fig_mostVendor_2017
             highestStore_graph = fig_highestStore_2017
             mostStore_graph = fig_mostStore_2017
+            store_map = store_map_2017
 
         # 2018
         if y_selected == 7:
@@ -862,6 +891,7 @@ def selected_y(y_selected):
             mostVendor_graph = fig_mostVendor_2018
             highestStore_graph = fig_highestStore_2018
             mostStore_graph = fig_mostStore_2018
+            store_map = store_map_2018
 
         # 2019
         if y_selected == 8:
@@ -899,6 +929,7 @@ def selected_y(y_selected):
             mostVendor_graph = fig_mostVendor_2019
             highestStore_graph = fig_highestStore_2019
             mostStore_graph = fig_mostStore_2019
+            store_map = store_map_2019
 
         # 2020
         if y_selected == 9:
@@ -937,6 +968,7 @@ def selected_y(y_selected):
             mostVendor_graph = fig_mostVendor_2020
             highestStore_graph = fig_highestStore_2020
             mostStore_graph = fig_mostStore_2020
+            store_map = store_map_2020
 
         # 2021
         if y_selected == 10:
@@ -975,6 +1007,7 @@ def selected_y(y_selected):
             mostVendor_graph = fig_mostVendor_2021
             highestStore_graph = fig_highestStore_2021
             mostStore_graph = fig_mostStore_2021
+            store_map = store_map_2021
 
         # 2022
         if y_selected == 11:
@@ -1013,6 +1046,7 @@ def selected_y(y_selected):
             mostVendor_graph = fig_mostVendor_2022
             highestStore_graph = fig_highestStore_2022
             mostStore_graph = fig_mostStore_2022
+            store_map = store_map_2022
 
     return (sale_title, total_sales, sales_previous, sales_diff,
             cost_title, total_cost, cost_previous, cost_diff,
@@ -1022,4 +1056,4 @@ def selected_y(y_selected):
             volume_title, total_volume, volume_previous, volume_diff,
             monthly_sales_graph, dow_sales_graph, month_dow_graph, highestItem_graph,
             mostItem_graph, highestCat_graph, mostCat_graph, highestVendor_graph,
-            mostVendor_graph, highestStore_graph, mostStore_graph)
+            mostVendor_graph, highestStore_graph, mostStore_graph, store_map)
