@@ -1,10 +1,14 @@
 import geopandas as gpd # pip install geopandas
 import folium # pip install folium
+import pandas as pd
 from shapely import wkt # no need install
 
 
 def convert_gpd_groupBy(df):
-    df_gpd_map = df[['Store Name', 'Address', 'Zip Code', 'City', 'County', 'Store Location']]
+    df['Date'] = pd.to_datetime(df['Date'])
+    df['Year'] = df['Date'].dt.strftime('%Y')
+
+    df_gpd_map = df[['Year', 'Store Name', 'Address', 'Zip Code', 'City', 'County', 'Store Location']]
 
     # need to drop nan values before doing anything
     df_gpd_map = df_gpd_map.dropna(subset=['Store Location'])
@@ -20,6 +24,9 @@ def convert_gpd_groupBy(df):
     df_gpd_map['Latitude'] = df_gpd_map.geometry.apply(lambda p: p.y)
 
     df_gpd_map_groupBy = df_gpd_map.groupby('Store Name').value_counts().reset_index()
+    df_gpd_map_groupBy = df_gpd_map_groupBy[['Year', 'Store Name', 'Address', 'Zip Code', 'City',
+                                             'County', 'Store Location', 'geometry', 'Longitude', 'Latitude']]
+
     return df_gpd_map_groupBy
 
 def map_of_stores(df):

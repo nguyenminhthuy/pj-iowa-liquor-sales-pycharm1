@@ -108,6 +108,28 @@ def plot_monthly_sales_bydf(sale, inv):
     fig.update_layout(margin=dict(r=0, l=0, t=50, b=10))
     return fig
 
+def plot_monthly_sale_cost_profit(df):
+    fig = px.bar(df,
+             x="Month", y="Sum", color="Category",
+             color_discrete_map={
+                'Total Cost (USD)': 'teal',
+                'Gross Profit (USD)': 'turquoise',
+            })
+
+    fig.update_layout(title="Cost and Profit",
+                         legend=dict(
+                         orientation="h",
+                         yanchor="top",
+                         y=1,
+                         xanchor="left",
+                         x=0.01
+                    ))
+    fig.update_layout({'plot_bgcolor': 'rgba(0, 0, 0, 0)',
+                       'paper_bgcolor': 'rgba(0, 0, 0, 0)'})
+    fig.update_layout(margin=dict(r=0, l=0, t=50, b=10),
+                     title_text='MONTHLY SALES, COST AND PROFIT TREND', title_x=0.5)
+    return fig
+
 def plot_dow_sales_bydf(sale, inv):
     fig = make_subplots(specs=[[{"secondary_y": True}]])
 

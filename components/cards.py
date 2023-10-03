@@ -221,69 +221,82 @@ volumeSold = [
 
 # -------------------------------------------------
 # Get Total sale, number of invoices by months, day of week
-month_sale_2012, month_inv_2012, dow_sale_2012, dow_inv_2012, month_dow_2012 = calTotal.graph_general_byyear(df_2012)
-month_sale_2013, month_inv_2013, dow_sale_2013, dow_inv_2013, month_dow_2013 = calTotal.graph_general_byyear(df_2013)
-month_sale_2014, month_inv_2014, dow_sale_2014, dow_inv_2014, month_dow_2014 = calTotal.graph_general_byyear(df_2014)
-month_sale_2015, month_inv_2015, dow_sale_2015, dow_inv_2015, month_dow_2015 = calTotal.graph_general_byyear(df_2015)
-month_sale_2016, month_inv_2016, dow_sale_2016, dow_inv_2016, month_dow_2016 = calTotal.graph_general_byyear(df_2016)
-month_sale_2017, month_inv_2017, dow_sale_2017, dow_inv_2017, month_dow_2017 = calTotal.graph_general_byyear(df_2017)
-month_sale_2018, month_inv_2018, dow_sale_2018, dow_inv_2018, month_dow_2018 = calTotal.graph_general_byyear(df_2018)
-month_sale_2019, month_inv_2019, dow_sale_2019, dow_inv_2019, month_dow_2019 = calTotal.graph_general_byyear(df_2019)
-month_sale_2020, month_inv_2020, dow_sale_2020, dow_inv_2020, month_dow_2020 = calTotal.graph_general_byyear(df_2020)
-month_sale_2021, month_inv_2021, dow_sale_2021, dow_inv_2021, month_dow_2021 = calTotal.graph_general_byyear(df_2021)
-month_sale_2022, month_inv_2022, dow_sale_2022, dow_inv_2022, month_dow_2022 = calTotal.graph_general_byyear(df_2022)
+month_sale_2012, month_cost_2012, month_profit_2012, month_inv_2012, dow_sale_2012, dow_inv_2012, month_dow_2012 = calTotal.graph_general_byyear(df_2012)
+month_sale_2013, month_cost_2013, month_profit_2013, month_inv_2013, dow_sale_2013, dow_inv_2013, month_dow_2013 = calTotal.graph_general_byyear(df_2013)
+month_sale_2014, month_cost_2014, month_profit_2014, month_inv_2014, dow_sale_2014, dow_inv_2014, month_dow_2014 = calTotal.graph_general_byyear(df_2014)
+month_sale_2015, month_cost_2015, month_profit_2015, month_inv_2015, dow_sale_2015, dow_inv_2015, month_dow_2015 = calTotal.graph_general_byyear(df_2015)
+month_sale_2016, month_cost_2016, month_profit_2016, month_inv_2016, dow_sale_2016, dow_inv_2016, month_dow_2016 = calTotal.graph_general_byyear(df_2016)
+month_sale_2017, month_cost_2017, month_profit_2017, month_inv_2017, dow_sale_2017, dow_inv_2017, month_dow_2017 = calTotal.graph_general_byyear(df_2017)
+month_sale_2018, month_cost_2018, month_profit_2018, month_inv_2018, dow_sale_2018, dow_inv_2018, month_dow_2018 = calTotal.graph_general_byyear(df_2018)
+month_sale_2019, month_cost_2019, month_profit_2019, month_inv_2019, dow_sale_2019, dow_inv_2019, month_dow_2019 = calTotal.graph_general_byyear(df_2019)
+month_sale_2020, month_cost_2020, month_profit_2020, month_inv_2020, dow_sale_2020, dow_inv_2020, month_dow_2020 = calTotal.graph_general_byyear(df_2020)
+month_sale_2021, month_cost_2021, month_profit_2021, month_inv_2021, dow_sale_2021, dow_inv_2021, month_dow_2021 = calTotal.graph_general_byyear(df_2021)
+month_sale_2022, month_cost_2022, month_profit_2022, month_inv_2022, dow_sale_2022, dow_inv_2022, month_dow_2022 = calTotal.graph_general_byyear(df_2022)
 
-fig_monthly_sales_2012 = plotCharts.plot_monthly_sales_bydf(month_sale_2012, month_inv_2012)
-fig_dow_sales_2012 = plotCharts.plot_dow_sales_bydf(dow_sale_2012, dow_inv_2012)
+df_sale_cost_profit_2012 = calTotal.df_sale_cost_profit(month_cost_2012, month_profit_2012)
+fig_monthly_sales_2012 = plotCharts.plot_monthly_sale_cost_profit(df_sale_cost_profit_2012)
+#fig_dow_sales_2012 = plotCharts.plot_dow_sales_bydf(dow_sale_2012, dow_inv_2012)
 fig_month_dow_2012 = plotCharts.plot_heatmap_month_dow(month_dow_2012)
 
-fig_monthly_sales_2013 = plotCharts.plot_monthly_sales_bydf(month_sale_2013, month_inv_2013)
-fig_dow_sales_2013 = plotCharts.plot_dow_sales_bydf(dow_sale_2013, dow_inv_2013)
+df_sale_cost_profit_2013 = calTotal.df_sale_cost_profit(month_cost_2013, month_profit_2013)
+fig_monthly_sales_2013 = plotCharts.plot_monthly_sale_cost_profit(df_sale_cost_profit_2013)
+#fig_dow_sales_2013 = plotCharts.plot_dow_sales_bydf(dow_sale_2013, dow_inv_2013)
 fig_month_dow_2013 = plotCharts.plot_heatmap_month_dow(month_dow_2013)
 
-fig_monthly_sales_2014 = plotCharts.plot_monthly_sales_bydf(month_sale_2014, month_inv_2014)
-fig_dow_sales_2014 = plotCharts.plot_dow_sales_bydf(dow_sale_2014, dow_inv_2014)
+df_sale_cost_profit_2014 = calTotal.df_sale_cost_profit(month_cost_2014, month_profit_2014)
+fig_monthly_sales_2014 = plotCharts.plot_monthly_sale_cost_profit(df_sale_cost_profit_2014)
+#fig_dow_sales_2014 = plotCharts.plot_dow_sales_bydf(dow_sale_2014, dow_inv_2014)
 fig_month_dow_2014 = plotCharts.plot_heatmap_month_dow(month_dow_2014)
 
-fig_monthly_sales_2015 = plotCharts.plot_monthly_sales_bydf(month_sale_2015, month_inv_2015)
-fig_dow_sales_2015 = plotCharts.plot_dow_sales_bydf(dow_sale_2015, dow_inv_2015)
+df_sale_cost_profit_2015 = calTotal.df_sale_cost_profit(month_cost_2015, month_profit_2015)
+fig_monthly_sales_2015 = plotCharts.plot_monthly_sale_cost_profit(df_sale_cost_profit_2015)
+#fig_dow_sales_2015 = plotCharts.plot_dow_sales_bydf(dow_sale_2015, dow_inv_2015)
 fig_month_dow_2015 = plotCharts.plot_heatmap_month_dow(month_dow_2015)
 
-fig_monthly_sales_2016 = plotCharts.plot_monthly_sales_bydf(month_sale_2016, month_inv_2016)
-fig_dow_sales_2016 = plotCharts.plot_dow_sales_bydf(dow_sale_2016, dow_inv_2016)
+df_sale_cost_profit_2016 = calTotal.df_sale_cost_profit(month_cost_2016, month_profit_2016)
+fig_monthly_sales_2016 = plotCharts.plot_monthly_sale_cost_profit(df_sale_cost_profit_2016)
+#fig_dow_sales_2016 = plotCharts.plot_dow_sales_bydf(dow_sale_2016, dow_inv_2016)
 fig_month_dow_2016 = plotCharts.plot_heatmap_month_dow(month_dow_2016)
 
-fig_monthly_sales_2017 = plotCharts.plot_monthly_sales_bydf(month_sale_2017, month_inv_2017)
-fig_dow_sales_2017 = plotCharts.plot_dow_sales_bydf(dow_sale_2017, dow_inv_2017)
+df_sale_cost_profit_2017 = calTotal.df_sale_cost_profit(month_cost_2017, month_profit_2017)
+fig_monthly_sales_2017 = plotCharts.plot_monthly_sale_cost_profit(df_sale_cost_profit_2017)
+#fig_dow_sales_2017 = plotCharts.plot_dow_sales_bydf(dow_sale_2017, dow_inv_2017)
 fig_month_dow_2017 = plotCharts.plot_heatmap_month_dow(month_dow_2017)
 
-fig_monthly_sales_2018 = plotCharts.plot_monthly_sales_bydf(month_sale_2018, month_inv_2018)
-fig_dow_sales_2018 = plotCharts.plot_dow_sales_bydf(dow_sale_2018, dow_inv_2018)
+df_sale_cost_profit_2018 = calTotal.df_sale_cost_profit(month_cost_2018, month_profit_2018)
+fig_monthly_sales_2018 = plotCharts.plot_monthly_sale_cost_profit(df_sale_cost_profit_2018)
+#fig_dow_sales_2018 = plotCharts.plot_dow_sales_bydf(dow_sale_2018, dow_inv_2018)
 fig_month_dow_2018 = plotCharts.plot_heatmap_month_dow(month_dow_2018)
 
-fig_monthly_sales_2019 = plotCharts.plot_monthly_sales_bydf(month_sale_2019, month_inv_2019)
-fig_dow_sales_2019 = plotCharts.plot_dow_sales_bydf(dow_sale_2019, dow_inv_2019)
+df_sale_cost_profit_2019 = calTotal.df_sale_cost_profit(month_cost_2019, month_profit_2019)
+fig_monthly_sales_2019 = plotCharts.plot_monthly_sale_cost_profit(df_sale_cost_profit_2019)
+#fig_dow_sales_2019 = plotCharts.plot_dow_sales_bydf(dow_sale_2019, dow_inv_2019)
 fig_month_dow_2019 = plotCharts.plot_heatmap_month_dow(month_dow_2019)
 
-fig_monthly_sales_2020 = plotCharts.plot_monthly_sales_bydf(month_sale_2020, month_inv_2020)
-fig_dow_sales_2020 = plotCharts.plot_dow_sales_bydf(dow_sale_2020, dow_inv_2020)
+df_sale_cost_profit_2020 = calTotal.df_sale_cost_profit(month_cost_2020, month_profit_2020)
+fig_monthly_sales_2020 = plotCharts.plot_monthly_sale_cost_profit(df_sale_cost_profit_2020)
+#fig_dow_sales_2020 = plotCharts.plot_dow_sales_bydf(dow_sale_2020, dow_inv_2020)
 fig_month_dow_2020 = plotCharts.plot_heatmap_month_dow(month_dow_2020)
 
-fig_monthly_sales_2021 = plotCharts.plot_monthly_sales_bydf(month_sale_2021, month_inv_2021)
-fig_dow_sales_2021 = plotCharts.plot_dow_sales_bydf(dow_sale_2021, dow_inv_2021)
+df_sale_cost_profit_2021 = calTotal.df_sale_cost_profit(month_cost_2021, month_profit_2021)
+fig_monthly_sales_2021 = plotCharts.plot_monthly_sale_cost_profit(df_sale_cost_profit_2021)
+#fig_dow_sales_2021 = plotCharts.plot_dow_sales_bydf(dow_sale_2021, dow_inv_2021)
 fig_month_dow_2021 = plotCharts.plot_heatmap_month_dow(month_dow_2021)
 
-fig_monthly_sales_2022 = plotCharts.plot_monthly_sales_bydf(month_sale_2022, month_inv_2022)
-fig_dow_sales_2022 = plotCharts.plot_dow_sales_bydf(dow_sale_2022, dow_inv_2022)
+df_sale_cost_profit_2022 = calTotal.df_sale_cost_profit(month_cost_2022, month_profit_2022)
+fig_monthly_sales_2022 = plotCharts.plot_monthly_sale_cost_profit(df_sale_cost_profit_2022)
+#fig_dow_sales_2022 = plotCharts.plot_dow_sales_bydf(dow_sale_2022, dow_inv_2022)
 fig_month_dow_2022 = plotCharts.plot_heatmap_month_dow(month_dow_2022)
 
 month_graph = ([
     dcc.Graph(id="card_monthly_sales_graph")
 ])
 
+"""
 dow_graph = ([
     dcc.Graph(id="card_dow_sales_graph")
 ])
+"""
 
 m_dow_graph = ([
     dcc.Graph(id="card_month_dow_graph")
@@ -557,7 +570,7 @@ store_map = ([
     Output('card_volume_previous', 'children'),
     Output('card_volume_diff', 'children'),
     Output('card_monthly_sales_graph', 'figure'), # sales graphs
-    Output('card_dow_sales_graph', 'figure'),
+    #Output('card_dow_sales_graph', 'figure'),
     Output('card_month_dow_graph', 'figure'),
     Output('card_highestItem_graph', 'figure'), # top 10 graph
     Output('card_mostItem_graph', 'figure'),
@@ -577,7 +590,7 @@ def selected_y(y_selected):
         inv_title, total_inv, inv_previous, inv_diff, \
         bottle_title, total_bottle, bottle_previous, bottle_diff, \
         volume_title, total_volume, volume_previous, volume_diff,\
-        monthly_sales_graph, dow_sales_graph, month_dow_graph, highestItem_graph, \
+        monthly_sales_graph, month_dow_graph, highestItem_graph, \
         mostItem_graph, highestCat_graph, mostCat_graph, highestVendor_graph, \
         mostVendor_graph, highestStore_graph, mostStore_graph, store_map
 
@@ -607,7 +620,7 @@ def selected_y(y_selected):
         volume_previous = "$0"
         volume_diff = "$0"
         monthly_sales_graph = "N/A"
-        dow_sales_graph = "N/A"
+        #dow_sales_graph = "N/A"
         month_dow_graph = "N/A"
         highestItem_graph = "N/A"
         mostItem_graph  = "N/A"
@@ -647,7 +660,7 @@ def selected_y(y_selected):
             volume_previous = "N/A"
             volume_diff = "N/A"
             monthly_sales_graph = fig_monthly_sales_2012
-            dow_sales_graph = fig_dow_sales_2012
+            #dow_sales_graph = fig_dow_sales_2012
             month_dow_graph = fig_month_dow_2012
             highestItem_graph = fig_highestItem_2012
             mostItem_graph = fig_mostItem_2012
@@ -686,7 +699,7 @@ def selected_y(y_selected):
             volume_previous = v_2012
             volume_diff = diff_volumeSold_2013_2012
             monthly_sales_graph = fig_monthly_sales_2013
-            dow_sales_graph = fig_dow_sales_2013
+            #dow_sales_graph = fig_dow_sales_2013
             month_dow_graph = fig_month_dow_2013
             highestItem_graph = fig_highestItem_2013
             mostItem_graph = fig_mostItem_2013
@@ -725,7 +738,7 @@ def selected_y(y_selected):
             volume_previous = v_2013
             volume_diff = diff_volumeSold_2014_2013
             monthly_sales_graph = fig_monthly_sales_2014
-            dow_sales_graph = fig_dow_sales_2014
+            #dow_sales_graph = fig_dow_sales_2014
             month_dow_graph = fig_month_dow_2014
             highestItem_graph = fig_highestItem_2014
             mostItem_graph = fig_mostItem_2014
@@ -764,7 +777,7 @@ def selected_y(y_selected):
             volume_previous = v_2014
             volume_diff = diff_volumeSold_2015_2014
             monthly_sales_graph = fig_monthly_sales_2015
-            dow_sales_graph = fig_dow_sales_2015
+            #dow_sales_graph = fig_dow_sales_2015
             month_dow_graph = fig_month_dow_2015
             highestItem_graph = fig_highestItem_2015
             mostItem_graph = fig_mostItem_2015
@@ -803,7 +816,7 @@ def selected_y(y_selected):
             volume_previous = v_2015
             volume_diff = diff_volumeSold_2016_2015
             monthly_sales_graph = fig_monthly_sales_2016
-            dow_sales_graph = fig_dow_sales_2016
+            #dow_sales_graph = fig_dow_sales_2016
             month_dow_graph = fig_month_dow_2016
             highestItem_graph = fig_highestItem_2016
             mostItem_graph = fig_mostItem_2016
@@ -842,7 +855,7 @@ def selected_y(y_selected):
             volume_previous = v_2016
             volume_diff = diff_volumeSold_2017_2016
             monthly_sales_graph = fig_monthly_sales_2017
-            dow_sales_graph = fig_dow_sales_2017
+            #dow_sales_graph = fig_dow_sales_2017
             month_dow_graph = fig_month_dow_2017
             highestItem_graph = fig_highestItem_2017
             mostItem_graph = fig_mostItem_2017
@@ -881,7 +894,7 @@ def selected_y(y_selected):
             volume_previous = v_2017
             volume_diff = diff_volumeSold_2018_2017
             monthly_sales_graph = fig_monthly_sales_2018
-            dow_sales_graph = fig_dow_sales_2018
+            #dow_sales_graph = fig_dow_sales_2018
             month_dow_graph = fig_month_dow_2018
             highestItem_graph = fig_highestItem_2018
             mostItem_graph = fig_mostItem_2018
@@ -919,7 +932,7 @@ def selected_y(y_selected):
             volume_previous = v_2018
             volume_diff = diff_volumeSold_2019_2018
             monthly_sales_graph = fig_monthly_sales_2019
-            dow_sales_graph = fig_dow_sales_2019
+            #dow_sales_graph = fig_dow_sales_2019
             month_dow_graph = fig_month_dow_2019
             highestItem_graph = fig_highestItem_2019
             mostItem_graph = fig_mostItem_2019
@@ -958,7 +971,7 @@ def selected_y(y_selected):
             volume_previous = v_2019
             volume_diff = diff_volumeSold_2020_2019
             monthly_sales_graph = fig_monthly_sales_2020
-            dow_sales_graph = fig_dow_sales_2020
+            #dow_sales_graph = fig_dow_sales_2020
             month_dow_graph = fig_month_dow_2020
             highestItem_graph = fig_highestItem_2020
             mostItem_graph = fig_mostItem_2020
@@ -997,7 +1010,7 @@ def selected_y(y_selected):
             volume_previous = v_2020
             volume_diff = diff_volumeSold_2021_2020
             monthly_sales_graph = fig_monthly_sales_2021
-            dow_sales_graph = fig_dow_sales_2021
+            #dow_sales_graph = fig_dow_sales_2021
             month_dow_graph = fig_month_dow_2021
             highestItem_graph = fig_highestItem_2021
             mostItem_graph = fig_mostItem_2021
@@ -1036,7 +1049,7 @@ def selected_y(y_selected):
             volume_previous = v_2021
             volume_diff = diff_volumeSold_2022_2021
             monthly_sales_graph = fig_monthly_sales_2022
-            dow_sales_graph = fig_dow_sales_2022
+            #dow_sales_graph = fig_dow_sales_2022
             month_dow_graph = fig_month_dow_2022
             highestItem_graph = fig_highestItem_2022
             mostItem_graph = fig_mostItem_2022
@@ -1054,6 +1067,6 @@ def selected_y(y_selected):
             inv_title, total_inv, inv_previous, inv_diff,
             bottle_title, total_bottle, bottle_previous, bottle_diff,
             volume_title, total_volume, volume_previous, volume_diff,
-            monthly_sales_graph, dow_sales_graph, month_dow_graph, highestItem_graph,
+            monthly_sales_graph, month_dow_graph, highestItem_graph,
             mostItem_graph, highestCat_graph, mostCat_graph, highestVendor_graph,
             mostVendor_graph, highestStore_graph, mostStore_graph, store_map)

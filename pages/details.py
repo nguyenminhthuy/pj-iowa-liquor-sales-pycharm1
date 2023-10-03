@@ -31,8 +31,8 @@ layout = html.Div([
     html.Div(
         dbc.Row([
                 dbc.Col(cards.month_graph, className="text-center border-end m-3"),
-                dbc.Col(cards.m_dow_graph, className="text-center border-end m-3"),
-                dbc.Col(cards.dow_graph, className="text-center m-3"),
+                # dbc.Col(cards.m_dow_graph, className="text-center border-end m-3"),
+                dbc.Col(cards.m_dow_graph, className="text-center m-3"),
             ], className="m-4",
         )
     ),

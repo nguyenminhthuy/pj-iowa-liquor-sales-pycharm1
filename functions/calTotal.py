@@ -253,25 +253,63 @@ def diff_volumeSold_yearAfterBefore(volumeSold2012, volumeSold2013, volumeSold20
     return (diff_volumeSold_2013_2012, diff_volumeSold_2014_2013, diff_volumeSold_2015_2014, diff_volumeSold_2016_2015, diff_volumeSold_2017_2016,
             diff_volumeSold_2018_2017, diff_volumeSold_2019_2018, diff_volumeSold_2020_2019, diff_volumeSold_2021_2020, diff_volumeSold_2022_2021)
 
+
 def graph_general_byyear(df):
     df['Date'] = pd.to_datetime(df['Date'])
     df['Month'] = df['Date'].dt.strftime('%B').astype(month_category)
     df['Day of Week'] = df['Date'].dt.dayofweek.map({0: 'Monday', 1: 'Tuesday', 2: 'Wednesday', 3: 'Thursday',
                                                      4: 'Friday', 5: 'Saturday', 6: 'Sunday'}).astype(dow_category)
 
+    # Cost and gross profit
+    df['Cost'] = df['State Bottle Cost'] * df['Bottles Sold']
+    df['Profit'] = df['Sale (Dollars)'] - df['Cost']
+
     # Details sale, number of invoices by months in a year
-    month_sale = df['Sale (Dollars)'].groupby(df['Month'], observed=True).sum()
+    month_sale = df['Sale (Dollars)'].groupby(df['Month'], observed=False).sum()
+    month_cost = df['Cost'].groupby(df['Month'], observed=False).sum()
+    month_profit = df['Profit'].groupby(df['Month'], observed=False).sum()
+
     month_inv = df['Month'].value_counts(sort=False)
 
     # Details sale, number of invoices by day of week
-    dow_sale = df['Sale (Dollars)'].groupby(df['Day of Week'], observed=True).sum()
+    dow_sale = df['Sale (Dollars)'].groupby(df['Day of Week'], observed=False).sum()
     dow_inv = df['Day of Week'].value_counts(sort=False)
 
     # sales of months, day of week for heatmap
-    m_dow = df['Sale (Dollars)'].groupby([df['Month'], df['Day of Week']], observed=True).sum().reset_index()
+    m_dow = df['Sale (Dollars)'].groupby([df['Month'], df['Day of Week']], observed=False).sum().reset_index()
     m_dow_df = m_dow.pivot(index='Month', columns='Day of Week')['Sale (Dollars)'].fillna(0)
 
-    return month_sale, month_inv, dow_sale, dow_inv, m_dow_df
+    return month_sale, month_cost, month_profit, month_inv, dow_sale, dow_inv, m_dow_df
+
+
+def df_sale_cost_profit(cost, profit):
+    df_cost_profit = pd.DataFrame([['January', 'Total Cost (USD)', cost.iloc[0]],
+                                   ['January', 'Gross Profit (USD)', profit.iloc[0]],
+                                   ['February', 'Total Cost (USD)', cost.iloc[1]],
+                                   ['February', 'Gross Profit (USD)', profit.iloc[1]],
+                                   ['March', 'Total Cost (USD)', cost.iloc[2]],
+                                   ['March', 'Gross Profit (USD)', profit.iloc[2]],
+                                   ['April', 'Total Cost (USD)', cost.iloc[3]],
+                                   ['April', 'Gross Profit (USD)', profit.iloc[3]],
+                                   ['May', 'Total Cost (USD)', cost.iloc[4]],
+                                   ['May', 'Gross Profit (USD)', profit.iloc[4]],
+                                   ['June', 'Total Cost (USD)', cost.iloc[5]],
+                                   ['June', 'Gross Profit (USD)', profit.iloc[5]],
+                                   ['July', 'Total Cost (USD)', cost.iloc[6]],
+                                   ['July', 'Gross Profit (USD)', profit.iloc[6]],
+                                   ['August', 'Total Cost (USD)', cost.iloc[7]],
+                                   ['August', 'Gross Profit (USD)', profit.iloc[7]],
+                                   ['September', 'Total Cost (USD)', cost.iloc[8]],
+                                   ['September', 'Gross Profit (USD)', profit.iloc[8]],
+                                   ['October', 'Total Cost (USD)', cost.iloc[9]],
+                                   ['October', 'Gross Profit (USD)', profit.iloc[9]],
+                                   ['November', 'Total Cost (USD)', cost.iloc[10]],
+                                   ['November', 'Gross Profit (USD)', profit.iloc[10]],
+                                   ['December', 'Total Cost (USD)', cost.iloc[11]],
+                                   ['December', 'Gross Profit (USD)', profit.iloc[11]],
+                                   ], columns=['Month', 'Category', 'Sum'])
+
+    return df_cost_profit
 
 def top_Grossing(df):
     top10Item = df.groupby('Item Description')['Sale (Dollars)'].agg(['sum','count'])
