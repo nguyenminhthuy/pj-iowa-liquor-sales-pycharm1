@@ -1,7 +1,6 @@
-import geopandas as gpd # pip install geopandas
-import folium # pip install folium
+import folium  # pip install folium
+import geopandas as gpd  # pip install geopandas
 import pandas as pd
-from shapely import wkt # no need install
 
 
 def convert_gpd_groupBy(df):
@@ -16,10 +15,10 @@ def convert_gpd_groupBy(df):
     # convert to str
     df_gpd_map['Store Location'] = df_gpd_map['Store Location'].astype(str)
 
-    # use shapely.wkt sub-module to parse wkt format
+    # use shapely.wkt submodule to parse wkt format
     df_gpd_map['geometry'] = gpd.GeoSeries.from_wkt(df_gpd_map['Store Location'])
 
-    # Turn geometry column into lat/long columns in Geodataframe
+    # Turn geometry column into lat/long columns in Geo dataframe
     df_gpd_map['Longitude'] = df_gpd_map.geometry.apply(lambda p: p.x)
     df_gpd_map['Latitude'] = df_gpd_map.geometry.apply(lambda p: p.y)
 

@@ -1,6 +1,7 @@
 import dash_bootstrap_components as dbc
 from dash import html, callback, Output, Input, dcc
-from functions import readData, calTotal, plotCharts, foliumMap
+
+from functions import readData, calTotal, plotCharts
 
 # Read Data
 df_2012 = readData.data_2012()
