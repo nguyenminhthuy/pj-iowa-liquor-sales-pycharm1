@@ -2,7 +2,7 @@ import dash
 import dash_bootstrap_components as dbc
 from dash import dcc, html
 from dash.dependencies import Input, Output, State
-from pages import home, details
+from pages import home, details, search
 from components import navbar
 
 app = dash.Dash(
@@ -24,6 +24,8 @@ def render_page_content(pathname):
         return home.layout
     elif pathname == "/details":
         return details.layout
+    elif pathname == "/search":
+        return search.layout
     # If the user tries to reach a different page, return a 404 message
     return html.Div(
         [

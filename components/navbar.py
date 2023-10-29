@@ -52,12 +52,16 @@ header = dbc.Navbar(
                 dbc.Button(children=[html.I(className="fa fa-home fa-lg")],
                            href="/",
                            style=dict(fontSize="20px", backgroundColor="rgb(237, 201, 72)",
-                                      textAlign="center", color="black", border="none")
+                                      textAlign="center", color="rgb(30, 51, 118)", border="none")
                            ), md="auto",
             ),
 
-            dbc.Col(canvas.off_canvas,
-                    md="auto")  # Filter data functions
+            dbc.Col(
+                dbc.Button(children=html.Span([html.I(className="fa fa-search fa-lg")]),
+                           href="/search",
+                           n_clicks=0, style=dict(fontSize="20px", backgroundColor="rgb(237, 201, 72)",
+                                                  textAlign="center", color="rgb(30, 51, 118)", border="none")
+                           ), md="auto")  # Filter data functions
         ], align="center"),
     ], className='m-2', fluid=True
     ),
