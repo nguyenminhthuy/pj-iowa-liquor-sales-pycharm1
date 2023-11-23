@@ -1,6 +1,5 @@
 import dash_bootstrap_components as dbc
-from dash import html, dcc
-
+from dash import html, dcc, Output, Input, callback, ALL, ctx, State
 from components import cards_search
 
 tab_style = {
@@ -15,62 +14,58 @@ tab_selected_style = {
     'color': 'black',
 }
 
+keyword_dict = {'2012', '2013', '2014', '2015'}
+
 layout = html.Div([
     html.Img(id="backtotop"),
     dbc.Row([
         dbc.Col(
-            html.Div([
-                html.P("Year"),
-                dcc.Dropdown(
-                    ['2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022'],
-                    placeholder="Select...", multi=True
-                )])
+            dcc.Dropdown(
+                ['2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022'],
+                placeholder="Select year...", multi=True,
+                id="dropdown_year_search"
+            ),
+            width=3,
         ),
         dbc.Col(
-            html.Div([
-                html.P("Item name"),
-                dcc.Dropdown(
-                    ['New York City', 'Montreal', 'San Francisco'],
-                    placeholder="Select...", multi=True
-                )]),
+            dbc.Input(type="text", id="txt_keyword",
+                      placeholder="Search by keyword", size="md"),
         ),
         dbc.Col(
-            html.Div([
-                html.P("Store name"),
-                dcc.Dropdown(
-                    ['New York City', 'Montreal', 'San Francisco'],
-                    placeholder="Select...", multi=True
-                )])
+            dbc.Button("SUBMIT", id="btnSubmit",
+                       className='btn-search p-2',
+                       style={
+                           'background-color': 'rgb(237, 201, 72)',
+                           'color': 'rgb(30, 51, 118)',
+                           'border': '0px', 'font-weight': 'bold'
+                       }),
+            width=2, className="d-grid gap-2"
         ),
-        dbc.Col(
-            html.Div([
-                html.P("Category name"),
-                dcc.Dropdown(
-                    ['New York City', 'Montreal', 'San Francisco'],
-                    placeholder="Select...", multi=True
-                )])
+    ], className="m-4"),
+
+    dbc.Row([
+        html.H6("Result for:"),
+        html.Div(id="lstSearch_result"),
+    ], className="m-5"),
+
+    dbc.Row([
+        dbc.ListGroup(
+            [
+                dbc.ListGroupItem(
+                    f"Item {i}",
+                    id={"type": "list-keyword-rs", "index": i},
+                    action=True
+                )
+                for i in keyword_dict
+            ],
+            id="list-group",
         ),
-        dbc.Col(
-            html.Div([
-                html.P("Vendor name"),
-                dcc.Dropdown(
-                    ['New York City', 'Montreal', 'San Francisco'],
-                    placeholder="Select...", multi=True
-                )]),
-        ),
-        dbc.Col(
-            html.Div([
-                # html.P(),
-                dbc.Button("SUBMIT",
-                           className='btn-search p-3',
-                           style={
-                               'background-color': 'rgb(237, 201, 72)',
-                               'color': 'rgb(30, 51, 118)',
-                               'border': '0px', 'font-weight': 'bold'
-                           })
-            ], className="mt-3 d-grid gap-2"),
-        ),
-    ], className="m-2"),
+    ], className="m-5"),
+
+    dbc.Row([
+        html.H6("Keyword selected:"),
+        html.Div(id="keyword_selected")
+    ], className="m-5"),
 
     dbc.Row(
         [
@@ -93,9 +88,8 @@ layout = html.Div([
 
     html.Div(
         dbc.Row([
-                dbc.Col(html.H4("SALES ANALYSIS", style={"color": "#FF7F50"})),
-            ], className="m-5"
-        )
+            dbc.Col(html.H4("SALES ANALYSIS", style={"color": "#FF7F50"})),
+        ], className="m-5")
     ),
 
     html.Div(
@@ -143,10 +137,28 @@ layout = html.Div([
         ], className="m-5",
     ),
 
-        dbc.Button(children=html.Span([html.I(className="fa fa-arrow-up fa-lg")]),
-               href="#backtotop",n_clicks=0,
+    dbc.Button(children=html.Span([html.I(className="fa fa-arrow-up fa-lg")]),
+               href="#backtotop", n_clicks=0,
                style=dict(fontSize="35px", backgroundColor="rgb(237, 201, 72)",
                           textAlign="right", color="rgb(30, 51, 118)", border="none",
-                          marginLeft = "90%")),
+                          marginLeft="90%")),
 
 ])
+
+@callback(
+    Output('lstSearch_result', 'children'),
+    Input('btnSubmit', 'n_clicks'),
+    [State('dropdown_year_search', 'value'),
+     State('txt_keyword', 'value')])
+def btnSubmit_click(n_clicks, year_val, key_val):
+    return 'Value inputted {}, and {}'.format(year_val, key_val)
+
+@callback(
+    Output("keyword_selected", "children"),
+    Input({'type': 'list-keyword-rs', 'index': ALL}, 'n_clicks'),
+    prevent_initial_call=True
+)
+def searchResult_selected(_):
+    return f"Clicked on Item {ctx.triggered_id.index}"
+
+

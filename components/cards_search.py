@@ -2,6 +2,7 @@ import dash_bootstrap_components as dbc
 from dash import html, callback, Output, Input, dcc
 import plotly.graph_objs as go
 
+
 sale = [
     dbc.CardHeader(html.H6("SALES", className="text-center")),
     dbc.CardBody([
