@@ -1,6 +1,7 @@
 import dash_bootstrap_components as dbc
 from dash import html, dcc, Output, Input, callback, ALL, ctx, State
 from components import cards_search
+from functions import searchResult
 
 tab_style = {
     'borderBottom': '1px solid #d6d6d6',
@@ -14,7 +15,7 @@ tab_selected_style = {
     'color': 'black',
 }
 
-keyword_dict = {'2012', '2013', '2014', '2015'}
+keyword_dict = ['2012', '2013', '2014', '2015']
 
 layout = html.Div([
     html.Img(id="backtotop"),
@@ -22,7 +23,7 @@ layout = html.Div([
         dbc.Col(
             dcc.Dropdown(
                 ['2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022'],
-                placeholder="Select year...", multi=True,
+                placeholder="Select year...",
                 id="dropdown_year_search"
             ),
             width=3,
@@ -44,8 +45,8 @@ layout = html.Div([
     ], className="m-4"),
 
     dbc.Row([
-        html.H6("Result for:"),
-        html.Div(id="lstSearch_result"),
+        html.H6("Your input:"),
+        html.Div(id="lstSearch_group"),
     ], className="m-5"),
 
     dbc.Row([
@@ -56,7 +57,7 @@ layout = html.Div([
                     id={"type": "list-keyword-rs", "index": i},
                     action=True
                 )
-                for i in keyword_dict
+                for i in list(keyword_dict)
             ],
             id="list-group",
         ),
@@ -146,12 +147,34 @@ layout = html.Div([
 ])
 
 @callback(
-    Output('lstSearch_result', 'children'),
+    Output('lstSearch_group', 'children'),
     Input('btnSubmit', 'n_clicks'),
     [State('dropdown_year_search', 'value'),
      State('txt_keyword', 'value')])
 def btnSubmit_click(n_clicks, year_val, key_val):
-    return 'Value inputted {}, and {}'.format(year_val, key_val)
+    global rs_group
+
+    #lst_rs = 'Year: {}. Keyword: {}'.format(year_val, key_val)
+    lst_item = searchResult.lst_search_result(year_val, key_val)
+    if len(lst_item) <= 0:
+        rs_group = [
+            dbc.Alert("We couldn't find a match for {} in {}. Please try another search".format(key_val, year_val),
+                      color="danger"),
+        ]
+    else:
+        rs_group = [
+            dbc.Alert("About {} results.".format(len(lst_item)),
+                      color="info"),
+            dbc.ListGroup([
+                    dbc.ListGroupItem(
+                        f"{i}",
+                        id={"type": "list-keyword-rs1", "index": i},
+                        action=True
+                    )
+                    for i in list(lst_item)
+                ], id="list-group1")
+        ]
+    return rs_group
 
 @callback(
     Output("keyword_selected", "children"),
